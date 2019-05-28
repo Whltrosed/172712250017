@@ -19,7 +19,7 @@ new Hu({
       const href = target.getAttribute('href');
 
       if( href ){
-        location.href = href;
+        location.href = '/172712250017' + href;
       }
     }
   },
