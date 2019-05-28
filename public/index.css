@@ -1,0 +1,44 @@
+body{
+  background-color: #EFEFEF;
+}
+
+#app{
+  width: 1024px;
+  margin: 0 auto; padding: 10px;
+  background-color: #FFF;
+  box-shadow: 0 0 12px #AAA;
+}
+
+#app-header > div.jumbotron{
+  margin-bottom: 10px;
+  padding: 4rem 2rem;
+  font-size: 48px;
+  font-weight: bolder;
+  color: #AE2B23;
+  text-shadow: 1px 1px #FFF;
+  background-image: linear-gradient( to bottom, #FAFBE3, #FFF  );
+}
+
+#app-header > ul.row{
+  width: 100%; height: 40px;
+  background-color: #F27A02;
+  color: #FFF;
+  margin-bottom: 0;
+}
+#app-header > ul.row > li{
+  height: 40px; line-height: 40px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+#app-header > ul.row > li:hover{
+  background-color: #FF942A;
+}
+#app-header > ul.row > li:not( :first-child )::before{
+  content: "";
+  width: 1px; height: 32%;
+  position: absolute; top: 0; right: auto; bottom: 0; left: 0; margin: auto;
+  transform: translateX( -50% );
+  background-color: #FFF;
+  box-shadow: 0 0 6px #FFF;
+}
