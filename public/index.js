@@ -2,8 +2,26 @@
 new Hu({
   el: '#app-header',
   data: {
-    nav: [ '首页', '政务公开', '项目审批', '曝光台', '行业信息', '机关党建', '下载专区', '互动平台' ],
+    nav: [
+      { name: '首页', href: '/' },
+      { name: '工程建设', href: '/secondaries/gcjs' },
+      { name: '政府采购', href: '/secondaries/zfcg' },
+      { name: '政务公开' },
+      { name: '项目审批' },
+      { name: '曝光台' },
+      { name: '行业信息' },
+      { name: '机关党建' }
+    ],
     time: null
+  },
+  methods: {
+    jump({ target }){
+      const href = target.getAttribute('href');
+
+      if( href ){
+        location.href = href;
+      }
+    }
   },
   render( html ){
     const bindRenderNav = html.bind( this, 'render_nav' );
@@ -16,9 +34,9 @@ new Hu({
     `;
   },
   computed: {
-    render_nav({ nav }){
-      return Hu.html.repeat( nav, name => name, name => {
-        return Hu.html`<div class="col">${ name }</div>`;
+    render_nav({ nav, jump }){
+      return Hu.html.repeat( nav, 'name', data => {
+        return Hu.html`<div class="col" href=${ data.href } @click=${ jump } ?disabled=${ !data.href }>${ data.name }</div>`;
       });
     }
   },
