@@ -1,11 +1,13 @@
+const ISGITHUBSERVER = location.pathname.startsWith('/172712250017/');
+
 // Header
 new Hu({
   el: '#app-header',
   data: {
     nav: [
       { name: '首页', href: '/' },
-      { name: '工程建设', href: '/secondaries/gcjs' },
-      { name: '政府采购', href: '/secondaries/zfcg' },
+      { name: '工程建设', href: '/secondaries/gcjs/' },
+      { name: '政府采购', href: '/secondaries/zfcg/' },
       { name: '政务公开' },
       { name: '项目审批' },
       { name: '曝光台' },
@@ -19,7 +21,7 @@ new Hu({
       const href = target.getAttribute('href');
 
       if( href ){
-        location.href = '/172712250017' + href;
+        location.href = ( ISGITHUBSERVER ? '/172712250017' : '' ) + href;
       }
     }
   },
