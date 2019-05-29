@@ -42,7 +42,7 @@ new Hu({
   },
   beforeCreate(){
     const self = this;
-    const weeks = '日一二六三四五'.split('');
+    const weeks = '日一二三四五六'.split('');
 
     !function callback(){
       const date = new Date;
