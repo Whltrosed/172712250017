@@ -54,3 +54,17 @@ body{
   padding-left: 6px;
   font-size: 13px;
 }
+
+/* 底部标题 */
+#app-footer > .title{
+  width: 100%; height: 32px; line-height: 32px;
+  background-color: #F27A02;
+  text-align: center;
+  font-size: 13px;
+  color: #FFF;
+}
+#app-footer > div:not( .title ){
+  width: 100%; height: 32px; line-height: 32px;
+  text-align: center;
+  font-size: 13px;
+}
