@@ -61,7 +61,50 @@ new Hu({
     return html`
       <hr>
       <div class="title">社会主义核心价值观：富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善</div>
-      <br>
+      <div>
+        <a href="javascript:void(0)" @click=${ this.clear }>重置站点数据</a>
+      </div>
     `;
+  },
+  methods: {
+    createToast( msg, delay = 1000 ){
+      const container = document.createElement('div').$appendTo( document.body ).$css({
+        position: 'fixed', top: '20px', right: '20px',
+        pointerEvents: 'none'
+      });
+
+      Hu.render( container )`
+        <div class="toast" data-delay="${ delay }">
+          <div class="toast-header">
+            <strong class="mr-auto">Tips</strong>
+          </div>
+          <div class="toast-body">${ msg }</div>
+        </div>
+      `;
+
+      return $( '.toast', container ).toast('show').on( 'hidden.bs.toast', () => {
+        container.$remove();
+      });
+    },
+    clear(){
+      const toast = this.createToast( '重置站点数据中, 请稍后...', Number.MAX_SAFE_INTEGER / 10 );
+      const setTimeout = window.setTimeout.$args({
+        1: Math.$random( 520, 2048 )
+      });
+
+      setTimeout(() => {
+        openDatabase( '172712250017', '1.0', 'CL', 2 * 1024 * 1024 ).transaction(( tx ) => {
+          tx.executeSql(`drop table gcjs`);
+          tx.executeSql(`drop table zfcg`);
+          localStorage.setItem( 'isInit', 'false' );
+  
+          toast.find('.toast-body').html('站点数据重置成功 !');
+          window.setTimeout(
+            () => toast.toast('hide'),
+            2000
+          );
+        });
+      });
+    }
   }
 });
