@@ -43,11 +43,23 @@ new Hu({
           </div>
         </div>
         <div class="right">
-          <div class="title">公共服务系统</div>
-          <ul class="list-unstyled">
-            <li>后台管理系统</li>
-            <li>OA 办公登陆</li>
-          </ul>
+          <!--
+            <div>
+              <div class="title">公共服务系统</div>
+              <ul class="list-unstyled">
+                <li><a href="javascript:void(0)">后台管理系统</a></li>
+                <li><a href="javascript:void(0)">OA 办公登陆</a></li>
+              </ul>
+            </div>
+          -->
+          <div>
+            <div class="title">友情链接</div>
+            <ul class="list-unstyled">
+              <li><a href="https://www.baidu.com/" target="_blank">百度 ( Baidu )</a></li>
+              <li><a href="https://github.com/" target="_blank">GItHub</a></li>
+              <li><a href="https://github.com/MoomFE/Lit/tree/master" target="_blank">Hu.js</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <nav>
