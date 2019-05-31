@@ -6,6 +6,12 @@
   font-size: 15px;
 }
 
+#app-content > .content{
+  padding: 10px 24px;
+  border: 1px solid #E3E3E3;
+  border-top: 0px;
+}
+
 #app-content > .title > .loading{
   height: 36px !important; line-height: 36px !important;
 }

@@ -3,7 +3,8 @@
 new Hu({
   el: '#app-content',
   data: {
-    data: null 
+    data: null,
+    table: $('#app-content').attr('db')
   },
   render( html ){
     return html`
@@ -14,28 +15,29 @@ new Hu({
     `;
   },
   computed: {
-    render_data({ data }){
+    render_data({ data, table }){
       if( data == null ) return Hu.html`<div class="loading">数据加载中</div>`;
       if( data.length === 0 ) return Hu.html`<div class="null">无数据</div>`;
 
-      return data.map(({ name, time, state }) => {
+      return data.map(({ rowid, name, time, state }) => {
         return Hu.html`
           <li>
-            <a href="javascript:void(0)" target="_blank">${ name }</a>
+            <a href="../article/?table=${ table }&id=${ rowid }" target="_blank">
+              ${ name }
+            </a>
           </li>
         `;
       });
     } 
   },
   mounted(){
-    const table = this.$el.getAttribute('db');
     const setTimeout = window.setTimeout.$args({
       1: Math.$random( 520, 2048 )
     });
 
     setTimeout(() => {
       openDatabase( '172712250017', '1.0', 'CL', 2 * 1024 * 1024 ).transaction(( tx ) => {
-        tx.executeSql(`select * from ${ table }`, [], ( tx, data ) => {
+        tx.executeSql(`select rowid, * from ${ this.table }`, [], ( tx, data ) => {
           const result = [];
 
           if( data && data.rows && data.rows.length ){
