@@ -32,7 +32,7 @@ new Hu({
           content
         } = data.rows['0'];
 
-        this.title = title;
+        this.title = document.title = title;
         this.content = content.split('\n').join('<br>');
       });
     });
