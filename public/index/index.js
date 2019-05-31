@@ -43,9 +43,7 @@ new Hu({
           </div>
         </div>
         <div class="right">
-          <div class="title">
-            <span>公共服务系统</span>
-          </div>
+          <div class="title">公共服务系统</div>
           <ul class="list-unstyled">
             <li>后台管理系统</li>
             <li>OA 办公登陆</li>
